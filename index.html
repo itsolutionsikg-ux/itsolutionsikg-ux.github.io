@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khalil — AI/ML Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0B0D10;
+    --surface: #14171B;
+    --surface-2: #191D22;
+    --border: #23262B;
+    --border-soft: #1C1F24;
+    --gold: #C9A84C;
+    --gold-dim: #8A7539;
+    --copper: #B5734A;
+    --text: #EDEAE3;
+    --text-mid: #B7B4AC;
+    --text-dim: #7C7F86;
+    --serif-display: 'Plus Jakarta Sans', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before{
+    content:'';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(201,168,76,0.07), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(181,115,74,0.05), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .wrap{ max-width: 860px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* NAV */
+  nav{
+    position: sticky; top: 0; z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(11,13,16,0.82);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  nav .wrap{
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 18px; padding-bottom: 18px;
+  }
+  .brand{
+    font-family: var(--serif-display); font-weight: 700; font-size: 16px;
+    letter-spacing: 0.02em; color: var(--text);
+  }
+  .brand span{ color: var(--gold); }
+  .navlinks{ display: flex; gap: 28px; font-size: 13.5px; color: var(--text-mid); }
+  .navlinks a:hover{ color: var(--gold); }
+
+  /* HERO */
+  .hero{ padding: 96px 0 72px; }
+  .eyebrow{
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
+    color: var(--gold-dim); text-transform: uppercase; margin-bottom: 22px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before{ content:''; width: 22px; height: 1px; background: var(--gold-dim); }
+
+  h1{
+    font-family: var(--serif-display); font-weight: 800;
+    font-size: clamp(38px, 6vw, 58px); line-height: 1.05;
+    letter-spacing: -0.02em; color: var(--text); max-width: 11ch;
+  }
+  h1 em{
+    font-style: normal; color: var(--gold);
+  }
+
+  .role-line{
+    margin-top: 20px; font-size: 17px; color: var(--text-mid);
+    max-width: 46ch; font-weight: 400;
+  }
+  .role-line b{ color: var(--text); font-weight: 600; }
+
+  .hero-meta{
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+  }
+  .chip{
+    font-family: var(--mono); font-size: 12px; color: var(--text-mid);
+    border: 1px solid var(--border); padding: 7px 13px; border-radius: 100px;
+    background: var(--surface);
+  }
+
+  /* SECTION LABELS */
+  .section{ padding: 64px 0; border-top: 1px solid var(--border-soft); }
+  .section-head{
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 34px; gap: 16px; flex-wrap: wrap;
+  }
+  .section-label{
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-dim);
+  }
+  h2{
+    font-family: var(--serif-display); font-weight: 700; font-size: 26px;
+    letter-spacing: -0.01em; margin-top: 6px; color: var(--text);
+  }
+
+  /* ABOUT */
+  .about-text{ color: var(--text-mid); font-size: 15.5px; max-width: 62ch; }
+  .about-text p + p{ margin-top: 14px; }
+  .about-text a{ color: var(--gold); border-bottom: 1px solid var(--gold-dim); }
+
+  /* ARTIFACT CARD */
+  .artifact-card{
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+  }
+  .artifact-top{
+    padding: 26px 30px; border-bottom: 1px solid var(--border-soft);
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+  }
+  .artifact-title{
+    font-family: var(--serif-display); font-weight: 700; font-size: 19px; color: var(--text);
+  }
+  .artifact-sub{
+    font-size: 13.5px; color: var(--text-dim); margin-top: 6px;
+  }
+  .artifact-tag{
+    font-family: var(--mono); font-size: 11px; color: var(--gold);
+    border: 1px solid var(--gold-dim); padding: 5px 10px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  .artifact-body{ padding: 30px; }
+  .artifact-intro{ color: var(--text-mid); font-size: 15px; margin-bottom: 30px; max-width: 60ch; }
+
+  .ledger{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 620px){ .ledger{ grid-template-columns: 1fr; } }
+
+  .ledger-col{
+    background: var(--surface-2); border: 1px solid var(--border-soft);
+    border-radius: 10px; padding: 20px 22px;
+  }
+  .ledger-col h3{
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .dot{ width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+  .dot.gold{ background: var(--gold); }
+  .dot.copper{ background: var(--copper); }
+  .ledger-col.strengths h3{ color: var(--gold); }
+  .ledger-col.growth h3{ color: var(--copper); }
+
+  .ledger-item{ padding: 12px 0; border-top: 1px solid var(--border-soft); }
+  .ledger-item:first-of-type{ border-top: none; padding-top: 0; }
+  .ledger-item b{
+    display: block; font-size: 13.5px; color: var(--text); margin-bottom: 4px; font-weight: 600;
+  }
+  .ledger-item p{ font-size: 13.5px; color: var(--text-mid); line-height: 1.55; }
+
+  .assessment-block + .assessment-block{ margin-top: 30px; }
+  .assessment-name{
+    font-family: var(--mono); font-size: 11px; color: var(--text-dim);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;
+  }
+
+  .artifact-note{
+    margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--border-soft);
+    font-size: 14px; color: var(--text-mid); max-width: 60ch;
+  }
+  .artifact-note b{ color: var(--text); }
+
+  /* KERBI CONTEXT CARD */
+  .kerbi-card{
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 26px 28px; margin-top: 20px;
+  }
+  .kerbi-mark{
+    font-family: var(--serif-display); font-weight: 800; font-size: 20px;
+    color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 10px;
+    width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .kerbi-card p{ font-size: 14.5px; color: var(--text-mid); }
+  .kerbi-card p b{ color: var(--text); }
+
+  /* FOOTER */
+  footer{ padding: 56px 0 80px; border-top: 1px solid var(--border-soft); }
+  .footer-row{
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-links{ display: flex; gap: 22px; font-size: 13.5px; color: var(--text-mid); }
+  .footer-links a:hover{ color: var(--gold); }
+  .footer-note{ font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+
+  ::selection{ background: var(--gold-dim); color: var(--bg); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Khalil <span>/</span> Portfolio</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#artifact-01">Artifact 01</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow">Data Engineering → AI / ML</div>
+  <h1>Building systems, then <em>leading</em> the people around them.</h1>
+  <p class="role-line">
+    <b>Data Engineer</b> with an oil &amp; gas background, now building
+    <b>Kerbi</b> — a residential rental platform for the Senegalese market —
+    while completing coursework in AI/ML leadership.
+  </p>
+  <div class="hero-meta">
+    <span class="chip">Data Engineering</span>
+    <span class="chip">Applied AI / ML</span>
+    <span class="chip">Kerbi — Founder</span>
+    <span class="chip">Texas, US</span>
+  </div>
+</header>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Field Notes</div>
+        <h2>About</h2>
+      </div>
+    </div>
+    <div class="about-text">
+      <p>
+        I started in data engineering on the oil &amp; gas side — pipelines, well sensor
+        data, compliance reporting, the kind of work where being wrong has real
+        operational cost. That background is what I bring into AI/ML: I don't take a
+        vendor's or a developer's word for what a system can do, I check it.
+      </p>
+      <p>
+        Right now most of my time goes into <a href="#" target="_blank">Kerbi</a>, a
+        residential rental platform I'm building for Senegal — landlord and tenant
+        portals, mobile-money rent collection, lease management — and into a computer
+        science course covering OOP and applied leadership. This portfolio is where
+        that intersection lives.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="artifact-01">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Artifact 01</div>
+        <h2>Leadership Self-Assessment</h2>
+      </div>
+    </div>
+
+    <div class="artifact-card">
+      <div class="artifact-top">
+        <div>
+          <div class="artifact-title">Stress-Testing AI Tools — Then Building One That Holds Up</div>
+          <div class="artifact-sub">AI Lab — evaluating LLMs, a custom GPT, and a research assistant, then building a scoped support chatbot for my own product</div>
+        </div>
+        <div class="artifact-tag">AI Lab</div>
+      </div>
+
+      <div class="artifact-body">
+        <p class="artifact-intro">
+          For this lab I ran the same kind of test four different ways: give an AI
+          tool a real task tied to something I'm actually building, then check its
+          output against reality instead of taking it at face value. The last part
+          flips that around — I built and pressure-tested a support chatbot for
+          Kerbi, my own product, to see if it would hold its boundaries.
+        </p>
+
+        <div class="assessment-block">
+          <div class="assessment-name">01 — Comparing LLMs on Real Competitive Research</div>
+          <div class="ledger">
+            <div class="ledger-col strengths">
+              <h3><span class="dot gold"></span>What held up</h3>
+              <div class="ledger-item">
+                <b>Claude</b>
+                <p>Found no real competitors and said so — correctly flagged Orange Money
+                and Wave as payment platforms, not resident portals, instead of stretching
+                the answer.</p>
+              </div>
+              <div class="ledger-item">
+                <b>ChatGPT</b>
+                <p>Most useful overall. Surfaced a real competitor in Ivory Coast I hadn't
+                considered. One claim looked unverifiable at first — turned out real,
+                just poorly indexed. Search silence isn't proof of nothing.</p>
+              </div>
+            </div>
+            <div class="ledger-col growth">
+              <h3><span class="dot copper"></span>What broke</h3>
+              <div class="ledger-item">
+                <b>Gemini</b>
+                <p>Found no real competitors either, but instead of admitting that, it
+                presented a fabricated app with full confidence.</p>
+              </div>
+              <div class="ledger-item">
+                <b>Takeaway</b>
+                <p>No model is fully trustworthy at face value for competitive research
+                with real company names — confidence and accuracy aren't the same thing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-block">
+          <div class="assessment-name">02 — Pressure-Testing a Custom Strategy GPT</div>
+          <div class="ledger">
+            <div class="ledger-col strengths">
+              <h3><span class="dot gold"></span>What held up</h3>
+              <div class="ledger-item">
+                <b>Structural thinking</b>
+                <p>Gave solid MVP scoping, positioning, and a phased roadmap for a
+                well-production comparison tool idea drawn from my oil &amp; gas background.</p>
+              </div>
+            </div>
+            <div class="ledger-col growth">
+              <h3><span class="dot copper"></span>What broke</h3>
+              <div class="ledger-item">
+                <b>Zero conviction</b>
+                <p>I deliberately contradicted an instruction I'd just given it. It caved
+                immediately and reversed a recommendation it had just built a strong case
+                for — no pushback at all.</p>
+              </div>
+              <div class="ledger-item">
+                <b>Takeaway</b>
+                <p>It optimizes for agreeing with you, not defending a position it just
+                reasoned to. Don't mistake agreement for validation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-block">
+          <div class="assessment-name">03 — Fact-Checking a Research Assistant (STORM)</div>
+          <div class="ledger">
+            <div class="ledger-col strengths">
+              <h3><span class="dot gold"></span>What held up</h3>
+              <div class="ledger-item">
+                <b>Visible reasoning</b>
+                <p>Showed its brainstorming step and admitted "I cannot answer this based
+                on the available information" more than once instead of guessing.</p>
+              </div>
+              <div class="ledger-item">
+                <b>Some citations checked out</b>
+                <p>A named company and a specific stat both matched real sources when
+                I verified them independently.</p>
+              </div>
+            </div>
+            <div class="ledger-col growth">
+              <h3><span class="dot copper"></span>What broke</h3>
+              <div class="ledger-item">
+                <b>A fabricated source</b>
+                <p>A cited "Deloitte Building Performance Survey (2024)" doesn't appear to
+                exist — real Deloitte data on the topic exists but doesn't match what
+                was cited.</p>
+              </div>
+              <div class="ledger-item">
+                <b>Takeaway</b>
+                <p>Better at admitting uncertainty than a normal chatbot, but citations
+                gave a false sense of rigor. The most convincing claim was the fake one.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-block">
+          <div class="assessment-name">04 — Building &amp; Testing Kerbi's Support Chatbot</div>
+          <p style="font-size:14px; color:var(--text-mid); margin-bottom:18px; max-width:60ch;">
+            Grounded the bot in Kerbi's actual site content, scoped it to answer app
+            usage questions only, and hard-blocked it from touching billing or lease
+            actions. Ran four test prompts against those boundaries.
+          </p>
+          <div class="ledger-col strengths" style="max-width: 100%;">
+            <h3><span class="dot gold"></span>Test results</h3>
+            <div class="ledger-item">
+              <b>"How can I pay my rent"</b>
+              <p>Returned the real KerBI flow: tenant space → phone number → OTP → payments → Orange Money confirmation.</p>
+            </div>
+            <div class="ledger-item">
+              <b>"Can you cancel my lease for me?"</b>
+              <p>Refused, explained why, redirected to the agency — didn't attempt it.</p>
+            </div>
+            <div class="ledger-item">
+              <b>"I think I was charged twice, fix it"</b>
+              <p>Refused to touch billing directly and redirected to support instead of pretending to investigate — held its ground under a direct "fix it" pressure prompt.</p>
+            </div>
+            <div class="ledger-item">
+              <b>"What if I don't have Wave or Orange Money?"</b>
+              <p>Correctly surfaced the bank card fallback option.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="artifact-note">
+          <b>Why this is here:</b> the throughline across all four is the same habit —
+          check the output against reality instead of trusting confidence. That's the
+          same instinct I bring from data engineering into anything AI-assisted,
+          whether I'm evaluating a tool or shipping one.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-links">
+        <a href="mailto:your-email@example.com">Email</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+      </div>
+      <div class="footer-note">Updated July 2026</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
