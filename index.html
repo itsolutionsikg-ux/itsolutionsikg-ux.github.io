@@ -124,6 +124,43 @@
   .about-text p + p{ margin-top: 14px; }
   .about-text a{ color: var(--gold); border-bottom: 1px solid var(--gold-dim); }
 
+  .vp-block{
+    margin-top: 32px; padding: 24px 26px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  }
+  .vp-block .section-label{ margin-bottom: 10px; }
+  .vp-text{ font-size: 15px; color: var(--text-mid); max-width: 60ch; }
+
+  .field-label{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold-dim); margin-bottom: 8px;
+  }
+  .field-block{ margin-bottom: 26px; }
+  .field-block p{ font-size: 14.5px; color: var(--text-mid); max-width: 62ch; }
+  .field-block .tools-list{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .field-block .tool-chip{
+    font-family: var(--mono); font-size: 12px; color: var(--text);
+    border: 1px solid var(--border-soft); padding: 6px 12px; border-radius: 100px;
+    background: var(--surface-2);
+  }
+  .field-block a{ color: var(--gold); border-bottom: 1px solid var(--gold-dim); }
+
+  .evidence-gallery{
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px; margin-top: 20px;
+  }
+  .evidence-item{
+    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    background: var(--surface-2);
+  }
+  .evidence-item img{
+    width: 100%; display: block; border-bottom: 1px solid var(--border-soft);
+  }
+  .evidence-caption{
+    font-family: var(--mono); font-size: 11px; color: var(--text-dim);
+    padding: 9px 11px; letter-spacing: 0.02em;
+  }
+
   /* ARTIFACT CARD */
   .artifact-card{
     background: var(--surface); border: 1px solid var(--border);
@@ -245,7 +282,7 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="section-label">Field Notes</div>
+        <div class="section-label">Professional Bio</div>
         <h2>About</h2>
       </div>
     </div>
@@ -264,6 +301,17 @@
         that intersection lives.
       </p>
     </div>
+
+    <div class="vp-block">
+      <div class="section-label">Personal Value Proposition</div>
+      <p class="vp-text">
+        I bring an engineer's skepticism to AI work — I verify before I trust, and
+        I build things that hold their scope under real pressure instead of caving
+        to make someone happy. That's the combination I offer: data-engineering
+        rigor paired with the ownership of actually shipping a product, not just
+        studying one.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -272,7 +320,7 @@
     <div class="section-head">
       <div>
         <div class="section-label">Artifact 01</div>
-        <h2>Leadership Self-Assessment</h2>
+        <h2>AI Lab</h2>
       </div>
     </div>
 
@@ -286,13 +334,42 @@
       </div>
 
       <div class="artifact-body">
-        <p class="artifact-intro">
-          For this lab I ran the same kind of test four different ways: give an AI
-          tool a real task tied to something I'm actually building, then check its
-          output against reality instead of taking it at face value. The last part
-          flips that around — I built and pressure-tested a support chatbot for
-          Kerbi, my own product, to see if it would hold its boundaries.
-        </p>
+
+        <div class="field-block">
+          <div class="field-label">Introduction</div>
+          <p>
+            This artifact documents a hands-on lab testing three LLMs, a custom
+            strategy GPT, and a research assistant against real tasks tied to Kerbi,
+            the product I'm building, then building and stress-testing a support
+            chatbot for that same product.
+          </p>
+        </div>
+
+        <div class="field-block">
+          <div class="field-label">Description</div>
+          <p>
+            A four-part evaluation: comparing Claude, ChatGPT, and Gemini on
+            competitive research for Kerbi; pressure-testing a custom strategy GPT
+            for consistency under contradiction; fact-checking a STORM-generated
+            research article against outside sources; and building a scoped support
+            chatbot trained on Kerbi's own site content, then running it through
+            four boundary-test prompts.
+          </p>
+        </div>
+
+        <div class="field-block">
+          <div class="field-label">Objective</div>
+          <p>
+            To learn how to critically evaluate AI tool output before trusting it in
+            a real business decision, and to test whether I could build an AI
+            assistant that holds firm boundaries under direct pressure instead of
+            improvising.
+          </p>
+        </div>
+
+        <div class="field-block">
+          <div class="field-label">Process</div>
+        </div>
 
         <div class="assessment-block">
           <div class="assessment-name">01 — Comparing LLMs on Real Competitive Research</div>
@@ -415,6 +492,29 @@
               <p>Correctly surfaced the bank card fallback option.</p>
             </div>
           </div>
+
+          <div class="evidence-gallery">
+            <div class="evidence-item">
+              <img src="assets/rent-payment.png" alt="KerBI chatbot answering how to pay rent, with a step-by-step flow">
+              <div class="evidence-caption">Evidence — rent payment flow</div>
+            </div>
+            <div class="evidence-item">
+              <img src="assets/electricity-bill.png" alt="KerBI chatbot answering how to pay an electricity bill">
+              <div class="evidence-caption">Evidence — electricity bill edge case</div>
+            </div>
+            <div class="evidence-item">
+              <img src="assets/cancel-lease.png" alt="KerBI chatbot refusing to cancel a lease and redirecting to the agency">
+              <div class="evidence-caption">Evidence — lease cancellation refusal</div>
+            </div>
+            <div class="evidence-item">
+              <img src="assets/billing-dispute.png" alt="KerBI chatbot refusing to fix a billing dispute and redirecting to support">
+              <div class="evidence-caption">Evidence — billing dispute redirect</div>
+            </div>
+            <div class="evidence-item">
+              <img src="assets/no-mobile-money.png" alt="KerBI chatbot surfacing the bank card fallback option">
+              <div class="evidence-caption">Evidence — payment fallback option</div>
+            </div>
+          </div>
         </div>
 
         <div class="artifact-note">
@@ -423,6 +523,55 @@
           same instinct I bring from data engineering into anything AI-assisted,
           whether I'm evaluating a tool or shipping one.
         </div>
+
+        <div class="field-block" style="margin-top:30px;">
+          <div class="field-label">Tools and Technologies Used</div>
+          <div class="tools-list">
+            <span class="tool-chip">Claude</span>
+            <span class="tool-chip">ChatGPT</span>
+            <span class="tool-chip">Gemini</span>
+            <span class="tool-chip">Custom Strategy GPT</span>
+            <span class="tool-chip">STORM (Stanford)</span>
+            <span class="tool-chip">Kerbi site content (chatbot knowledge base)</span>
+          </div>
+        </div>
+
+        <div class="field-block">
+          <div class="field-label">Value Proposition</div>
+          <p>
+            This shows I don't take AI output at face value — I verify it against
+            outside sources before it touches a real decision. That's the same
+            discipline that matters in data engineering, applied to AI/ML tools.
+          </p>
+        </div>
+
+        <div class="field-block">
+          <div class="field-label">Unique Value</div>
+          <p>
+            Most people testing AI tools do it on abstract prompts. I ran every test
+            against Kerbi, a business I'm actually building, so the findings and the
+            stakes were real, not hypothetical — including a chatbot that's a working
+            piece of the actual product.
+          </p>
+        </div>
+
+        <div class="field-block">
+          <div class="field-label">Relevance</div>
+          <p>
+            Directly relevant to any AI/ML or data role where tool selection and
+            output verification matter, and to Kerbi itself, since the support
+            chatbot test is a working component of the product, not just an exercise.
+          </p>
+        </div>
+
+        <div class="field-block" style="margin-bottom:0;">
+          <div class="field-label">References</div>
+          <p>
+            STORM-generated article: <a href="https://storm.genie.stanford.edu/article/the-impact-of-artificial-intelligence-in-resident-management-1617702" target="_blank">The Impact of AI on Resident Management</a>.
+            Chatbot test screenshots shown above are the original evidence from the lab submission.
+          </p>
+        </div>
+
       </div>
     </div>
   </div>
