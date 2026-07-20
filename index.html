@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khalil — AI/ML Portfolio</title>
+<title>Khalil | AI/ML Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -52,26 +52,21 @@
 
   .wrap{ max-width: 860px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
 
-  /* NAV */
   nav{
     position: sticky; top: 0; z-index: 10;
     backdrop-filter: blur(10px);
     background: rgba(11,13,16,0.82);
     border-bottom: 1px solid var(--border-soft);
   }
-  nav .wrap{
-    display: flex; align-items: center; justify-content: space-between;
-    padding-top: 18px; padding-bottom: 18px;
-  }
-  .brand{
-    font-family: var(--serif-display); font-weight: 700; font-size: 16px;
-    letter-spacing: 0.02em; color: var(--text);
-  }
+  nav .wrap{ display: flex; align-items: center; justify-content: space-between;
+    padding-top: 18px; padding-bottom: 18px; }
+  .brand{ font-family: var(--serif-display); font-weight: 700; font-size: 16px;
+    letter-spacing: 0.02em; color: var(--text); }
   .brand span{ color: var(--gold); }
   .navlinks{ display: flex; gap: 28px; font-size: 13.5px; color: var(--text-mid); }
+  .navlinks a{ cursor: pointer; }
   .navlinks a:hover{ color: var(--gold); }
 
-  /* HERO */
   .hero{ padding: 96px 0 72px; }
   .eyebrow{
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em;
@@ -85,31 +80,22 @@
     font-size: clamp(38px, 6vw, 58px); line-height: 1.05;
     letter-spacing: -0.02em; color: var(--text); max-width: 11ch;
   }
-  h1 em{
-    font-style: normal; color: var(--gold);
-  }
+  h1 em{ font-style: normal; color: var(--gold); }
 
-  .role-line{
-    margin-top: 20px; font-size: 17px; color: var(--text-mid);
-    max-width: 46ch; font-weight: 400;
-  }
+  .role-line{ margin-top: 20px; font-size: 17px; color: var(--text-mid);
+    max-width: 46ch; font-weight: 400; }
   .role-line b{ color: var(--text); font-weight: 600; }
 
-  .hero-meta{
-    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
-  }
+  .hero-meta{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
   .chip{
     font-family: var(--mono); font-size: 12px; color: var(--text-mid);
     border: 1px solid var(--border); padding: 7px 13px; border-radius: 100px;
     background: var(--surface);
   }
 
-  /* SECTION LABELS */
-  .section{ padding: 64px 0; border-top: 1px solid var(--border-soft); }
-  .section-head{
-    display: flex; align-items: baseline; justify-content: space-between;
-    margin-bottom: 34px; gap: 16px; flex-wrap: wrap;
-  }
+  .section{ padding: 56px 0; border-top: 1px solid var(--border-soft); }
+  .section-head{ display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 30px; gap: 16px; flex-wrap: wrap; }
   .section-label{
     font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--gold-dim);
@@ -119,49 +105,40 @@
     letter-spacing: -0.01em; margin-top: 6px; color: var(--text);
   }
 
-  /* ABOUT */
   .about-text{ color: var(--text-mid); font-size: 15.5px; max-width: 62ch; }
   .about-text p + p{ margin-top: 14px; }
   .about-text a{ color: var(--gold); border-bottom: 1px solid var(--gold-dim); }
 
   .vp-block{
-    margin-top: 32px; padding: 24px 26px;
+    margin-top: 28px; padding: 24px 26px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
   }
   .vp-block .section-label{ margin-bottom: 10px; }
   .vp-text{ font-size: 15px; color: var(--text-mid); max-width: 60ch; }
 
-  .field-label{
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--gold-dim); margin-bottom: 8px;
+  .edu-list{ display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
+  .edu-item{
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px; padding: 16px 20px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 10px; flex-wrap: wrap;
   }
-  .field-block{ margin-bottom: 26px; }
-  .field-block p{ font-size: 14.5px; color: var(--text-mid); max-width: 62ch; }
-  .field-block .tools-list{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
-  .field-block .tool-chip{
-    font-family: var(--mono); font-size: 12px; color: var(--text);
-    border: 1px solid var(--border-soft); padding: 6px 12px; border-radius: 100px;
-    background: var(--surface-2);
-  }
-  .field-block a{ color: var(--gold); border-bottom: 1px solid var(--gold-dim); }
-
-  .evidence-gallery{
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 14px; margin-top: 20px;
-  }
-  .evidence-item{
-    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-    background: var(--surface-2);
-  }
-  .evidence-item img{
-    width: 100%; display: block; border-bottom: 1px solid var(--border-soft);
-  }
-  .evidence-caption{
-    font-family: var(--mono); font-size: 11px; color: var(--text-dim);
-    padding: 9px 11px; letter-spacing: 0.02em;
+  .edu-item .edu-degree{ font-weight: 600; font-size: 14.5px; color: var(--text); }
+  .edu-item .edu-school{ font-size: 13.5px; color: var(--text-mid); margin-top: 3px; }
+  .edu-item .edu-date{
+    font-family: var(--mono); font-size: 11.5px; color: var(--gold-dim);
+    white-space: nowrap;
   }
 
-  /* ARTIFACT CARD */
+  .tab-bar{ display: flex; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; }
+  .tab-btn{
+    font-family: var(--mono); font-size: 12.5px; color: var(--text-mid);
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 10px 18px; border-radius: 100px; cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .tab-btn:hover{ color: var(--text); border-color: var(--gold-dim); }
+  .tab-btn.active{ color: var(--bg); background: var(--gold); border-color: var(--gold); font-weight: 600; }
+
   .artifact-card{
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 14px; overflow: hidden;
@@ -170,19 +147,28 @@
     padding: 26px 30px; border-bottom: 1px solid var(--border-soft);
     display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;
   }
-  .artifact-title{
-    font-family: var(--serif-display); font-weight: 700; font-size: 19px; color: var(--text);
-  }
-  .artifact-sub{
-    font-size: 13.5px; color: var(--text-dim); margin-top: 6px;
-  }
+  .artifact-title{ font-family: var(--serif-display); font-weight: 700; font-size: 19px; color: var(--text); }
+  .artifact-sub{ font-size: 13.5px; color: var(--text-dim); margin-top: 6px; }
   .artifact-tag{
     font-family: var(--mono); font-size: 11px; color: var(--gold);
     border: 1px solid var(--gold-dim); padding: 5px 10px; border-radius: 100px;
     white-space: nowrap;
   }
   .artifact-body{ padding: 30px; }
-  .artifact-intro{ color: var(--text-mid); font-size: 15px; margin-bottom: 30px; max-width: 60ch; }
+
+  .field-label{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold-dim); margin-bottom: 8px;
+  }
+  .field-block{ margin-bottom: 24px; }
+  .field-block p{ font-size: 14.5px; color: var(--text-mid); max-width: 62ch; }
+  .field-block .tools-list{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .field-block .tool-chip{
+    font-family: var(--mono); font-size: 12px; color: var(--text);
+    border: 1px solid var(--border-soft); padding: 6px 12px; border-radius: 100px;
+    background: var(--surface-2);
+  }
+  .field-block a{ color: var(--gold); border-bottom: 1px solid var(--gold-dim); }
 
   .ledger{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
   @media (max-width: 620px){ .ledger{ grid-template-columns: 1fr; } }
@@ -204,44 +190,37 @@
 
   .ledger-item{ padding: 12px 0; border-top: 1px solid var(--border-soft); }
   .ledger-item:first-of-type{ border-top: none; padding-top: 0; }
-  .ledger-item b{
-    display: block; font-size: 13.5px; color: var(--text); margin-bottom: 4px; font-weight: 600;
-  }
+  .ledger-item b{ display: block; font-size: 13.5px; color: var(--text); margin-bottom: 4px; font-weight: 600; }
   .ledger-item p{ font-size: 13.5px; color: var(--text-mid); line-height: 1.55; }
 
-  .assessment-block + .assessment-block{ margin-top: 30px; }
+  .assessment-block + .assessment-block{ margin-top: 28px; }
   .assessment-name{
     font-family: var(--mono); font-size: 11px; color: var(--text-dim);
     letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;
   }
 
   .artifact-note{
-    margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--border-soft);
+    margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border-soft);
     font-size: 14px; color: var(--text-mid); max-width: 60ch;
   }
   .artifact-note b{ color: var(--text); }
 
-  /* KERBI CONTEXT CARD */
-  .kerbi-card{
-    display: flex; gap: 20px; align-items: flex-start;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 14px; padding: 26px 28px; margin-top: 20px;
+  .evidence-gallery{
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px; margin-top: 20px;
   }
-  .kerbi-mark{
-    font-family: var(--serif-display); font-weight: 800; font-size: 20px;
-    color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 10px;
-    width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+  .evidence-item{
+    border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    background: var(--surface-2);
   }
-  .kerbi-card p{ font-size: 14.5px; color: var(--text-mid); }
-  .kerbi-card p b{ color: var(--text); }
+  .evidence-item img{ width: 100%; display: block; border-bottom: 1px solid var(--border-soft); }
+  .evidence-caption{
+    font-family: var(--mono); font-size: 11px; color: var(--text-dim);
+    padding: 9px 11px; letter-spacing: 0.02em;
+  }
 
-  /* FOOTER */
   footer{ padding: 56px 0 80px; border-top: 1px solid var(--border-soft); }
-  .footer-row{
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 16px;
-  }
+  .footer-row{ display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
   .footer-links{ display: flex; gap: 22px; font-size: 13.5px; color: var(--text-mid); }
   .footer-links a:hover{ color: var(--gold); }
   .footer-note{ font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
@@ -256,24 +235,23 @@
     <div class="brand">Khalil <span>/</span> Portfolio</div>
     <div class="navlinks">
       <a href="#about">About</a>
-      <a href="#artifact-01">Artifact 01</a>
+      <a href="#artifacts" onclick="showTab('artifact-01')">Artifacts</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
 <header class="hero wrap">
-  <div class="eyebrow">Data Engineering → AI / ML</div>
+  <div class="eyebrow">Data Engineering to AI / ML</div>
   <h1>Building systems, then <em>leading</em> the people around them.</h1>
   <p class="role-line">
-    <b>Data Engineer</b> with an oil &amp; gas background, now building
-    <b>Kerbi</b> — a residential rental platform for the Senegalese market —
-    while completing coursework in AI/ML leadership.
+    <b>Senior Data Engineer</b> at an oil and gas company, now building a
+    real estate SaaS company on the side while finishing an MS in AI.
   </p>
   <div class="hero-meta">
     <span class="chip">Data Engineering</span>
     <span class="chip">Applied AI / ML</span>
-    <span class="chip">Kerbi — Founder</span>
+    <span class="chip">Real Estate SaaS Founder</span>
     <span class="chip">Texas, US</span>
   </div>
 </header>
@@ -288,292 +266,495 @@
     </div>
     <div class="about-text">
       <p>
-        I started in data engineering on the oil &amp; gas side — pipelines, well sensor
-        data, compliance reporting, the kind of work where being wrong has real
-        operational cost. That background is what I bring into AI/ML: I don't take a
-        vendor's or a developer's word for what a system can do, I check it.
-      </p>
-      <p>
-        Right now most of my time goes into <a href="#" target="_blank">Kerbi</a>, a
-        residential rental platform I'm building for Senegal — landlord and tenant
-        portals, mobile-money rent collection, lease management — and into a computer
-        science course covering OOP and applied leadership. This portfolio is where
-        that intersection lives.
+        I'm currently a Senior Data Engineer at an oil and gas company,
+        working with pipelines, well sensor data, and compliance reporting.
+        On the side, I'm building a SaaS company focused on real estate
+        products, including resident portals and CRM tools.
       </p>
     </div>
 
-    <div class="vp-block">
-      <div class="section-label">Personal Value Proposition</div>
-      <p class="vp-text">
-        I bring an engineer's skepticism to AI work — I verify before I trust, and
-        I build things that hold their scope under real pressure instead of caving
-        to make someone happy. That's the combination I offer: data-engineering
-        rigor paired with the ownership of actually shipping a product, not just
-        studying one.
-      </p>
+    <div class="vp-block" style="margin-top:18px;">
+      <div class="section-label">Education</div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div>
+            <div class="edu-degree">M.S. Artificial Intelligence</div>
+            <div class="edu-school">Indiana Wesleyan University</div>
+          </div>
+          <div class="edu-date">In Progress</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-degree">B.S. Information Technology</div>
+            <div class="edu-school">Texas Tech University</div>
+          </div>
+          <div class="edu-date">Graduated December 2023</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="artifact-01">
+<section class="section" id="artifacts">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="section-label">Artifact 01</div>
-        <h2>AI Lab</h2>
+        <div class="section-label">Portfolio</div>
+        <h2>Artifacts</h2>
       </div>
     </div>
 
-    <div class="artifact-card">
-      <div class="artifact-top">
-        <div>
-          <div class="artifact-title">Stress-Testing AI Tools — Then Building One That Holds Up</div>
-          <div class="artifact-sub">AI Lab — evaluating LLMs, a custom GPT, and a research assistant, then building a scoped support chatbot for my own product</div>
-        </div>
-        <div class="artifact-tag">AI Lab</div>
-      </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="artifact-01" onclick="showTab('artifact-01')">Artifact 01: AI Lab</button>
+      <button class="tab-btn" data-tab="artifact-02" onclick="showTab('artifact-02')">Artifact 02: ML vs. DL</button>
+    </div>
 
-      <div class="artifact-body">
-
-        <div class="field-block">
-          <div class="field-label">Introduction</div>
-          <p>
-            This artifact documents a hands-on lab testing three LLMs, a custom
-            strategy GPT, and a research assistant against real tasks tied to Kerbi,
-            the product I'm building, then building and stress-testing a support
-            chatbot for that same product.
-          </p>
+    <div class="tab-panel" id="artifact-01">
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div>
+            <div class="artifact-title">Stress-Testing AI Tools, Then Building One That Holds Up</div>
+            <div class="artifact-sub">AI Lab: evaluating LLMs, a custom GPT, and a research assistant, then building a scoped support chatbot for my own product</div>
+          </div>
+          <div class="artifact-tag">AI Lab</div>
         </div>
 
-        <div class="field-block">
-          <div class="field-label">Description</div>
-          <p>
-            A four-part evaluation: comparing Claude, ChatGPT, and Gemini on
-            competitive research for Kerbi; pressure-testing a custom strategy GPT
-            for consistency under contradiction; fact-checking a STORM-generated
-            research article against outside sources; and building a scoped support
-            chatbot trained on Kerbi's own site content, then running it through
-            four boundary-test prompts.
-          </p>
-        </div>
+        <div class="artifact-body">
 
-        <div class="field-block">
-          <div class="field-label">Objective</div>
-          <p>
-            To learn how to critically evaluate AI tool output before trusting it in
-            a real business decision, and to test whether I could build an AI
-            assistant that holds firm boundaries under direct pressure instead of
-            improvising.
-          </p>
-        </div>
+          <div class="field-block">
+            <div class="field-label">Introduction</div>
+            <p>
+              This artifact documents a hands-on lab testing three LLMs, a custom
+              strategy GPT, and a research assistant against real tasks tied to a
+              SaaS company I'm building, then building and stress-testing a
+              support chatbot for that same product.
+            </p>
+          </div>
 
-        <div class="field-block">
-          <div class="field-label">Process</div>
-        </div>
+          <div class="field-block">
+            <div class="field-label">Description</div>
+            <p>
+              A four-part evaluation: comparing Claude, ChatGPT, and Gemini on
+              competitive research for the company; pressure-testing a custom
+              strategy GPT for consistency under contradiction; fact-checking a
+              STORM-generated research article against outside sources; and
+              building a scoped support chatbot trained on the company's own
+              site content, then running it through four boundary-test prompts.
+            </p>
+          </div>
 
-        <div class="assessment-block">
-          <div class="assessment-name">01 — Comparing LLMs on Real Competitive Research</div>
-          <div class="ledger">
-            <div class="ledger-col strengths">
-              <h3><span class="dot gold"></span>What held up</h3>
-              <div class="ledger-item">
-                <b>Claude</b>
-                <p>Found no real competitors and said so — correctly flagged Orange Money
-                and Wave as payment platforms, not resident portals, instead of stretching
-                the answer.</p>
+          <div class="field-block">
+            <div class="field-label">Objective</div>
+            <p>
+              To learn how to critically evaluate AI tool output before trusting
+              it in a real business decision, and to test whether I could build
+              an AI assistant that holds firm boundaries under direct pressure
+              instead of improvising.
+            </p>
+          </div>
+
+          <div class="field-block"><div class="field-label">Process</div></div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">01. Comparing LLMs on Real Competitive Research</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>What held up</h3>
+                <div class="ledger-item">
+                  <b>Claude</b>
+                  <p>Found no real competitors and said so. It correctly flagged
+                  Orange Money and Wave as payment platforms, not resident
+                  portals, instead of stretching the answer.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>ChatGPT</b>
+                  <p>Most useful overall. Surfaced a real competitor in Ivory
+                  Coast I hadn't considered. One claim looked unverifiable at
+                  first but turned out to be real, just poorly indexed. Search
+                  silence isn't proof of nothing.</p>
+                </div>
               </div>
-              <div class="ledger-item">
-                <b>ChatGPT</b>
-                <p>Most useful overall. Surfaced a real competitor in Ivory Coast I hadn't
-                considered. One claim looked unverifiable at first — turned out real,
-                just poorly indexed. Search silence isn't proof of nothing.</p>
-              </div>
-            </div>
-            <div class="ledger-col growth">
-              <h3><span class="dot copper"></span>What broke</h3>
-              <div class="ledger-item">
-                <b>Gemini</b>
-                <p>Found no real competitors either, but instead of admitting that, it
-                presented a fabricated app with full confidence.</p>
-              </div>
-              <div class="ledger-item">
-                <b>Takeaway</b>
-                <p>No model is fully trustworthy at face value for competitive research
-                with real company names — confidence and accuracy aren't the same thing.</p>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>What broke</h3>
+                <div class="ledger-item">
+                  <b>Gemini</b>
+                  <p>Found no real competitors either, but instead of admitting
+                  that, it presented a fabricated app with full confidence.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Takeaway</b>
+                  <p>No model is fully trustworthy at face value for
+                  competitive research with real company names. Confidence and
+                  accuracy aren't the same thing.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="assessment-block">
-          <div class="assessment-name">02 — Pressure-Testing a Custom Strategy GPT</div>
-          <div class="ledger">
-            <div class="ledger-col strengths">
-              <h3><span class="dot gold"></span>What held up</h3>
-              <div class="ledger-item">
-                <b>Structural thinking</b>
-                <p>Gave solid MVP scoping, positioning, and a phased roadmap for a
-                well-production comparison tool idea drawn from my oil &amp; gas background.</p>
+          <div class="assessment-block">
+            <div class="assessment-name">02. Pressure-Testing a Custom Strategy GPT</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>What held up</h3>
+                <div class="ledger-item">
+                  <b>Structural thinking</b>
+                  <p>Gave solid MVP scoping, positioning, and a phased roadmap
+                  for a well-production comparison tool idea drawn from my oil
+                  and gas background.</p>
+                </div>
               </div>
-            </div>
-            <div class="ledger-col growth">
-              <h3><span class="dot copper"></span>What broke</h3>
-              <div class="ledger-item">
-                <b>Zero conviction</b>
-                <p>I deliberately contradicted an instruction I'd just given it. It caved
-                immediately and reversed a recommendation it had just built a strong case
-                for — no pushback at all.</p>
-              </div>
-              <div class="ledger-item">
-                <b>Takeaway</b>
-                <p>It optimizes for agreeing with you, not defending a position it just
-                reasoned to. Don't mistake agreement for validation.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="assessment-block">
-          <div class="assessment-name">03 — Fact-Checking a Research Assistant (STORM)</div>
-          <div class="ledger">
-            <div class="ledger-col strengths">
-              <h3><span class="dot gold"></span>What held up</h3>
-              <div class="ledger-item">
-                <b>Visible reasoning</b>
-                <p>Showed its brainstorming step and admitted "I cannot answer this based
-                on the available information" more than once instead of guessing.</p>
-              </div>
-              <div class="ledger-item">
-                <b>Some citations checked out</b>
-                <p>A named company and a specific stat both matched real sources when
-                I verified them independently.</p>
-              </div>
-            </div>
-            <div class="ledger-col growth">
-              <h3><span class="dot copper"></span>What broke</h3>
-              <div class="ledger-item">
-                <b>A fabricated source</b>
-                <p>A cited "Deloitte Building Performance Survey (2024)" doesn't appear to
-                exist — real Deloitte data on the topic exists but doesn't match what
-                was cited.</p>
-              </div>
-              <div class="ledger-item">
-                <b>Takeaway</b>
-                <p>Better at admitting uncertainty than a normal chatbot, but citations
-                gave a false sense of rigor. The most convincing claim was the fake one.</p>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>What broke</h3>
+                <div class="ledger-item">
+                  <b>Zero conviction</b>
+                  <p>I deliberately contradicted an instruction I'd just given
+                  it. It caved immediately and reversed a recommendation it had
+                  just built a strong case for, with no pushback at all.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Takeaway</b>
+                  <p>It optimizes for agreeing with you, not defending a
+                  position it just reasoned to. Don't mistake agreement for
+                  validation.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="assessment-block">
-          <div class="assessment-name">04 — Building &amp; Testing Kerbi's Support Chatbot</div>
-          <p style="font-size:14px; color:var(--text-mid); margin-bottom:18px; max-width:60ch;">
-            Grounded the bot in Kerbi's actual site content, scoped it to answer app
-            usage questions only, and hard-blocked it from touching billing or lease
-            actions. Ran four test prompts against those boundaries.
-          </p>
-          <div class="ledger-col strengths" style="max-width: 100%;">
-            <h3><span class="dot gold"></span>Test results</h3>
-            <div class="ledger-item">
-              <b>"How can I pay my rent"</b>
-              <p>Returned the real KerBI flow: tenant space → phone number → OTP → payments → Orange Money confirmation.</p>
+          <div class="assessment-block">
+            <div class="assessment-name">03. Fact-Checking a Research Assistant (STORM)</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>What held up</h3>
+                <div class="ledger-item">
+                  <b>Visible reasoning</b>
+                  <p>Showed its brainstorming step and admitted it couldn't
+                  answer based on available information more than once instead
+                  of guessing.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Some citations checked out</b>
+                  <p>A named company and a specific stat both matched real
+                  sources when I verified them independently.</p>
+                </div>
+              </div>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>What broke</h3>
+                <div class="ledger-item">
+                  <b>A fabricated source</b>
+                  <p>A cited "Deloitte Building Performance Survey (2024)"
+                  doesn't appear to exist. Real Deloitte data on the topic
+                  exists but doesn't match what was cited.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Takeaway</b>
+                  <p>Better at admitting uncertainty than a normal chatbot, but
+                  citations gave a false sense of rigor. The most convincing
+                  claim was the fake one.</p>
+                </div>
+              </div>
             </div>
-            <div class="ledger-item">
-              <b>"Can you cancel my lease for me?"</b>
-              <p>Refused, explained why, redirected to the agency — didn't attempt it.</p>
+          </div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">04. Building and Testing a Support Chatbot</div>
+            <p style="font-size:14px; color:var(--text-mid); margin-bottom:18px; max-width:60ch;">
+              Grounded the bot in the company's actual site content, scoped it
+              to answer app usage questions only, and hard-blocked it from
+              touching billing or lease actions. Ran four test prompts against
+              those boundaries.
+            </p>
+            <div class="ledger-col strengths" style="max-width: 100%;">
+              <h3><span class="dot gold"></span>Test results</h3>
+              <div class="ledger-item">
+                <b>"How can I pay my rent"</b>
+                <p>Returned the real support flow: tenant space, phone number,
+                OTP, payments, Orange Money confirmation.</p>
+              </div>
+              <div class="ledger-item">
+                <b>"Can you cancel my lease for me?"</b>
+                <p>Refused, explained why, and redirected to the agency instead
+                of attempting it.</p>
+              </div>
+              <div class="ledger-item">
+                <b>"I think I was charged twice, fix it"</b>
+                <p>Refused to touch billing directly and redirected to support
+                instead of pretending to investigate, holding its ground under
+                a direct "fix it" pressure prompt.</p>
+              </div>
+              <div class="ledger-item">
+                <b>"What if I don't have Wave or Orange Money?"</b>
+                <p>Correctly surfaced the bank card fallback option.</p>
+              </div>
             </div>
-            <div class="ledger-item">
-              <b>"I think I was charged twice, fix it"</b>
-              <p>Refused to touch billing directly and redirected to support instead of pretending to investigate — held its ground under a direct "fix it" pressure prompt.</p>
-            </div>
-            <div class="ledger-item">
-              <b>"What if I don't have Wave or Orange Money?"</b>
-              <p>Correctly surfaced the bank card fallback option.</p>
+
+            <div class="evidence-gallery">
+              <div class="evidence-item">
+                <img src="assets/rent-payment.png" alt="Chatbot answering how to pay rent, with a step-by-step flow">
+                <div class="evidence-caption">Evidence: rent payment flow</div>
+              </div>
+              <div class="evidence-item">
+                <img src="assets/electricity-bill.png" alt="Chatbot answering how to pay an electricity bill">
+                <div class="evidence-caption">Evidence: electricity bill edge case</div>
+              </div>
+              <div class="evidence-item">
+                <img src="assets/cancel-lease.png" alt="Chatbot refusing to cancel a lease and redirecting to the agency">
+                <div class="evidence-caption">Evidence: lease cancellation refusal</div>
+              </div>
+              <div class="evidence-item">
+                <img src="assets/billing-dispute.png" alt="Chatbot refusing to fix a billing dispute and redirecting to support">
+                <div class="evidence-caption">Evidence: billing dispute redirect</div>
+              </div>
+              <div class="evidence-item">
+                <img src="assets/no-mobile-money.png" alt="Chatbot surfacing the bank card fallback option">
+                <div class="evidence-caption">Evidence: payment fallback option</div>
+              </div>
             </div>
           </div>
 
-          <div class="evidence-gallery">
-            <div class="evidence-item">
-              <img src="assets/rent-payment.png" alt="KerBI chatbot answering how to pay rent, with a step-by-step flow">
-              <div class="evidence-caption">Evidence — rent payment flow</div>
-            </div>
-            <div class="evidence-item">
-              <img src="assets/electricity-bill.png" alt="KerBI chatbot answering how to pay an electricity bill">
-              <div class="evidence-caption">Evidence — electricity bill edge case</div>
-            </div>
-            <div class="evidence-item">
-              <img src="assets/cancel-lease.png" alt="KerBI chatbot refusing to cancel a lease and redirecting to the agency">
-              <div class="evidence-caption">Evidence — lease cancellation refusal</div>
-            </div>
-            <div class="evidence-item">
-              <img src="assets/billing-dispute.png" alt="KerBI chatbot refusing to fix a billing dispute and redirecting to support">
-              <div class="evidence-caption">Evidence — billing dispute redirect</div>
-            </div>
-            <div class="evidence-item">
-              <img src="assets/no-mobile-money.png" alt="KerBI chatbot surfacing the bank card fallback option">
-              <div class="evidence-caption">Evidence — payment fallback option</div>
+          <div class="artifact-note">
+            <b>Why this is here:</b> the throughline across all four is the same
+            habit: check the output against reality instead of trusting
+            confidence. That's the same instinct I bring from data engineering
+            into anything AI-assisted, whether I'm evaluating a tool or
+            shipping one.
+          </div>
+
+          <div class="field-block" style="margin-top:30px;">
+            <div class="field-label">Tools and Technologies Used</div>
+            <div class="tools-list">
+              <span class="tool-chip">Claude</span>
+              <span class="tool-chip">ChatGPT</span>
+              <span class="tool-chip">Gemini</span>
+              <span class="tool-chip">Custom Strategy GPT</span>
+              <span class="tool-chip">STORM (Stanford)</span>
+              <span class="tool-chip">Company site content (chatbot knowledge base)</span>
             </div>
           </div>
-        </div>
 
-        <div class="artifact-note">
-          <b>Why this is here:</b> the throughline across all four is the same habit —
-          check the output against reality instead of trusting confidence. That's the
-          same instinct I bring from data engineering into anything AI-assisted,
-          whether I'm evaluating a tool or shipping one.
-        </div>
-
-        <div class="field-block" style="margin-top:30px;">
-          <div class="field-label">Tools and Technologies Used</div>
-          <div class="tools-list">
-            <span class="tool-chip">Claude</span>
-            <span class="tool-chip">ChatGPT</span>
-            <span class="tool-chip">Gemini</span>
-            <span class="tool-chip">Custom Strategy GPT</span>
-            <span class="tool-chip">STORM (Stanford)</span>
-            <span class="tool-chip">Kerbi site content (chatbot knowledge base)</span>
+          <div class="field-block">
+            <div class="field-label">Value Proposition</div>
+            <p>
+              This shows I don't take AI output at face value. I verify it
+              against outside sources before it touches a real decision. That's
+              the same discipline that matters in data engineering, applied to
+              AI/ML tools.
+            </p>
           </div>
-        </div>
 
-        <div class="field-block">
-          <div class="field-label">Value Proposition</div>
-          <p>
-            This shows I don't take AI output at face value — I verify it against
-            outside sources before it touches a real decision. That's the same
-            discipline that matters in data engineering, applied to AI/ML tools.
-          </p>
-        </div>
+          <div class="field-block">
+            <div class="field-label">Unique Value</div>
+            <p>
+              Most people testing AI tools do it on abstract prompts. I ran
+              every test against a SaaS company I'm actually building, so the
+              findings and the stakes were real, not hypothetical. That
+              includes a chatbot that's a working piece of the actual product.
+            </p>
+          </div>
 
-        <div class="field-block">
-          <div class="field-label">Unique Value</div>
-          <p>
-            Most people testing AI tools do it on abstract prompts. I ran every test
-            against Kerbi, a business I'm actually building, so the findings and the
-            stakes were real, not hypothetical — including a chatbot that's a working
-            piece of the actual product.
-          </p>
-        </div>
+          <div class="field-block">
+            <div class="field-label">Relevance</div>
+            <p>
+              Directly relevant to any AI/ML or data role where tool selection
+              and output verification matter, and to the product itself, since
+              the support chatbot test is a working component, not just an
+              exercise.
+            </p>
+          </div>
 
-        <div class="field-block">
-          <div class="field-label">Relevance</div>
-          <p>
-            Directly relevant to any AI/ML or data role where tool selection and
-            output verification matter, and to Kerbi itself, since the support
-            chatbot test is a working component of the product, not just an exercise.
-          </p>
-        </div>
+          <div class="field-block" style="margin-bottom:0;">
+            <div class="field-label">References</div>
+            <p>
+              STORM-generated article:
+              <a href="https://storm.genie.stanford.edu/article/the-impact-of-artificial-intelligence-in-resident-management-1617702" target="_blank">The Impact of AI on Resident Management</a>.
+              Chatbot test screenshots shown above are the original evidence
+              from the lab submission.
+            </p>
+          </div>
 
-        <div class="field-block" style="margin-bottom:0;">
-          <div class="field-label">References</div>
-          <p>
-            STORM-generated article: <a href="https://storm.genie.stanford.edu/article/the-impact-of-artificial-intelligence-in-resident-management-1617702" target="_blank">The Impact of AI on Resident Management</a>.
-            Chatbot test screenshots shown above are the original evidence from the lab submission.
-          </p>
         </div>
-
       </div>
     </div>
+
+    <div class="tab-panel" id="artifact-02" style="display:none;">
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div>
+            <div class="artifact-title">Machine Learning vs. Deep Learning: A Case Study Comparison</div>
+            <div class="artifact-sub">Comparative analysis using two real-world systems, spam detection and facial recognition, to explain when each approach fits</div>
+          </div>
+          <div class="artifact-tag">Written Analysis</div>
+        </div>
+
+        <div class="artifact-body">
+
+          <div class="field-block">
+            <div class="field-label">Introduction</div>
+            <p>
+              ML and DL get lumped together constantly, but they solve problems
+              differently. This artifact breaks down that difference using two
+              systems people run into every day: a spam filter and a phone's
+              face unlock, instead of leaning on textbook definitions.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Description</div>
+            <p>
+              A side-by-side case study: spam detection solved with classical
+              ML using hand-picked features like trigger words and sender
+              domains, and facial recognition solved with deep learning (CNNs)
+              that learn their own features straight from raw pixels. Each case
+              explains why that approach fits the problem, and why the other
+              approach would fall short.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Objective</div>
+            <p>
+              To understand ML and DL well enough to explain the difference
+              through real applications rather than definitions, and to build
+              the instinct for matching the right approach to the shape of a
+              given problem.
+            </p>
+          </div>
+
+          <div class="field-block"><div class="field-label">Process</div></div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">Case 1. Spam Email Detection (Machine Learning)</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>Why ML fits</h3>
+                <div class="ledger-item">
+                  <b>The signals are already known</b>
+                  <p>Trigger words, sender domain, and link count are signals a
+                  person already knows point to spam, so those features can be
+                  defined up front and handed straight to the algorithm.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Fast, cheap, transparent</b>
+                  <p>Models like decision trees or logistic regression train
+                  quickly on comparatively little data, and you can inspect
+                  exactly which feature pushed a classification toward spam.</p>
+                </div>
+              </div>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>Why DL wouldn't fit as well</h3>
+                <div class="ledger-item">
+                  <b>More than the problem calls for</b>
+                  <p>DL needs large volumes of data and real compute to learn
+                  features on its own, but a manually engineered feature set
+                  already does that job cheaply for spam detection.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>No real upside</b>
+                  <p>Using DL here trades a fast, interpretable model for a
+                  slower, harder-to-explain one, with no meaningful accuracy
+                  gain on a problem this well defined.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">Case 2. Facial Recognition (Deep Learning)</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>Why DL fits</h3>
+                <div class="ledger-item">
+                  <b>No fixed checklist works</b>
+                  <p>A face can be photographed at different angles, lighting,
+                  and expressions. There's no stable set of hand-picked
+                  features that reliably covers every case.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>The network builds its own hierarchy</b>
+                  <p>A CNN learns edges first, then textures, then full facial
+                  patterns, straight from millions of labeled images. No one
+                  defines eye spacing or jaw width for it.</p>
+                </div>
+              </div>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>Why ML wouldn't fit as well</h3>
+                <div class="ledger-item">
+                  <b>Depends on features that don't hold up</b>
+                  <p>Traditional ML needs a human to define features before
+                  training starts, and there's no checklist that holds up
+                  across constantly changing lighting, angle, and expression.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Wrong tool for raw image volume</b>
+                  <p>ML wasn't built for the volume and complexity of raw image
+                  data. It would need the feature extraction done for it first,
+                  which defeats the point of an automated recognition system.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="artifact-note">
+            <b>Why this is here:</b> choosing between ML and DL isn't about
+            which one is more advanced. It's about matching the tool to the
+            shape of the problem. Spam detection stays simple and
+            interpretable because the features are already known. Facial
+            recognition needs DL because there's no reliable checklist for raw
+            image data, so the network has to discover the features itself.
+          </div>
+
+          <div class="field-block" style="margin-top:30px;">
+            <div class="field-label">Tools and Technologies Used</div>
+            <div class="tools-list">
+              <span class="tool-chip">Independent research</span>
+              <span class="tool-chip">Comparative case study analysis</span>
+              <span class="tool-chip">Real-world systems (spam filters, CNN-based face unlock)</span>
+            </div>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Value Proposition</div>
+            <p>
+              Shows I can explain a technical distinction through applied
+              examples instead of textbook definitions. That's the kind of
+              translation that matters when working with non-technical
+              stakeholders or making a build-versus-buy call on an ML
+              approach.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Unique Value</div>
+            <p>
+              Instead of picking generic textbook examples, I grounded both
+              cases in systems people already interact with daily, a spam
+              filter and a phone's face unlock, which makes the distinction
+              concrete instead of abstract.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Relevance</div>
+            <p>
+              Directly relevant to any AI/ML role that requires choosing the
+              right approach for a given problem, and to explaining that
+              reasoning clearly to a non-technical audience.
+            </p>
+          </div>
+
+          <div class="field-block" style="margin-bottom:0;">
+            <div class="field-label">References</div>
+            <p>
+              Case studies based on publicly documented spam-filtering systems
+              and CNN-based facial recognition (for example, smartphone unlock
+              and airport security). No external sources cited.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -582,13 +763,22 @@
     <div class="footer-row">
       <div class="footer-links">
         <a href="mailto:your-email@example.com">Email</a>
-        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://github.com/itsolutionsikg-ux" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
       </div>
       <div class="footer-note">Updated July 2026</div>
     </div>
   </div>
 </footer>
+
+<script>
+  function showTab(id){
+    document.querySelectorAll('.tab-panel').forEach(function(el){ el.style.display = 'none'; });
+    document.querySelectorAll('.tab-btn').forEach(function(el){ el.classList.remove('active'); });
+    document.getElementById(id).style.display = 'block';
+    document.querySelector('[data-tab="' + id + '"]').classList.add('active');
+  }
+</script>
 
 </body>
 </html>
