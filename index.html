@@ -307,6 +307,7 @@
     <div class="tab-bar">
       <button class="tab-btn active" data-tab="artifact-01" onclick="showTab('artifact-01')">Artifact 01: AI Lab</button>
       <button class="tab-btn" data-tab="artifact-02" onclick="showTab('artifact-02')">Artifact 02: ML vs. DL</button>
+      <button class="tab-btn" data-tab="artifact-03" onclick="showTab('artifact-03')">Artifact 03: Training Methods</button>
     </div>
 
     <div class="tab-panel" id="artifact-01">
@@ -748,6 +749,205 @@
               Case studies based on publicly documented spam-filtering systems
               and CNN-based facial recognition (for example, smartphone unlock
               and airport security). No external sources cited.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="artifact-03" style="display:none;">
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div>
+            <div class="artifact-title">Reasoning Through ML Training Methods with an AI Coach</div>
+            <div class="artifact-sub">A guided dialogue on supervised, unsupervised, and reinforcement learning, run answer-first and tested against real sensor data constraints</div>
+          </div>
+          <div class="artifact-tag">AI Dialogue</div>
+        </div>
+
+        <div class="artifact-body">
+
+          <div class="field-block">
+            <div class="field-label">Introduction</div>
+            <p>
+              A structured session with an AI coach covering the three learning
+              paradigms, optimization, and the training lifecycle. Rather than
+              asking the coach to explain each concept, I opened every topic
+              with my own position and a live constraint from the field, then
+              let the coach attack it.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Description</div>
+            <p>
+              Seven core topics worked through as a back-and-forth: how
+              supervised models learn from labeled data, what unsupervised
+              learning optimizes when there's no answer key, how a
+              reinforcement agent balances exploration against exploitation,
+              why algorithm choice matters relative to feature quality, the
+              steps in a training pipeline, what iteration buys you, and the
+              role of the data itself. Each was grounded in equipment sensor
+              data rather than textbook examples.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Objective</div>
+            <p>
+              To pressure-test my understanding of training methods against
+              conditions that actually show up in a production data
+              environment, and to practice using an AI tool as a sparring
+              partner instead of an answer source.
+            </p>
+          </div>
+
+          <div class="field-block"><div class="field-label">Process</div></div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">01. The Three Learning Paradigms</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>What held up</h3>
+                <div class="ledger-item">
+                  <b>The supervised loop</b>
+                  <p>Predict, measure error with a loss function, adjust weights,
+                  repeat. Framed as equipment failure prediction using sensor
+                  windows labeled failure-within-30-days or normal.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Reinforcement learning trade-off</b>
+                  <p>The agent acts, gets a reward or penalty, and updates its
+                  policy toward higher long-term reward. Exploration finds
+                  better strategies, exploitation cashes in on what's known.</p>
+                </div>
+              </div>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>What the dialogue changed</h3>
+                <div class="ledger-item">
+                  <b>Inconsistent labels cap performance</b>
+                  <p>If technicians disagree on the same reading, the loss
+                  function chases a moving target. The practical rule I landed
+                  on: inter-rater agreement sets a realistic accuracy ceiling,
+                  and beating it usually means fitting noise.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Clustering isn't redundant</b>
+                  <p>I argued clustering adds nothing when an asset register
+                  already exists. The reframe held: the register says what
+                  equipment is, clustering shows how it behaves. Assets
+                  drifting out of their cluster become maintenance flags before
+                  any threshold alarm fires.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">02. Training Pipeline and Data Reality</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>What held up</h3>
+                <div class="ledger-item">
+                  <b>The lifecycle</b>
+                  <p>Define the problem, clean data, engineer features, split
+                  train/validation/test, train and tune, evaluate on held-out
+                  data, deploy and monitor for drift.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Features set the ceiling</b>
+                  <p>The algorithm only decides how close you get to it. If
+                  vibration data isn't in the feature set, no optimizer invents
+                  it.</p>
+                </div>
+              </div>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>Where I pushed back</h3>
+                <div class="ledger-item">
+                  <b>Features don't always win</b>
+                  <p>The "features beat algorithms" rule holds for tabular
+                  sensor data. In images and text the network learns its own
+                  representations, which is the entire point of deep learning.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Rare events break validation</b>
+                  <p>With few failures, a single split may contain none. Early
+                  stopping has to lean on the gap between training and
+                  validation loss, and cross-validation spreads the few
+                  positives across folds.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Resampling has a boundary</b>
+                  <p>Oversampling belongs in training only. Validation and test
+                  stay at the true base rate, or the metrics describe a world
+                  that doesn't exist. Threshold choice then follows the cost of
+                  a false alarm against a missed failure.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="evidence-gallery">
+            <div class="evidence-item">
+              <img src="assets/ml-coach-session.png" alt="Session transcript showing an answer-first exchange on supervised learning and label inconsistency">
+              <div class="evidence-caption">Evidence: coaching session transcript</div>
+            </div>
+          </div>
+
+          <div class="artifact-note">
+            <b>Why this is here:</b> the value wasn't the definitions, it was
+            the format. Stating a position first and inviting the coach to
+            break it produced corrections I wouldn't have reached by asking for
+            explanations. That's the difference between using AI to learn and
+            using it to look up answers.
+          </div>
+
+          <div class="field-block" style="margin-top:30px;">
+            <div class="field-label">Tools and Technologies Used</div>
+            <div class="tools-list">
+              <span class="tool-chip">SchoolAI conversational coach</span>
+              <span class="tool-chip">Socratic dialogue method</span>
+              <span class="tool-chip">Industrial sensor data context</span>
+            </div>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Value Proposition</div>
+            <p>
+              Shows I can hold my own reasoning in a technical conversation
+              rather than deferring to the tool. The session produced working
+              rules I'd apply on a real project, not recited definitions.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Unique Value</div>
+            <p>
+              Every question was anchored to a condition I actually deal with:
+              inconsistent field labeling, dropped gateway windows, tag naming
+              mismatches across historians, and failure events too rare to
+              validate cleanly. That turned a concept review into a working
+              session.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Relevance</div>
+            <p>
+              Directly applicable to predictive maintenance work, where
+              imbalanced classes and inconsistent labeling are the norm rather
+              than the exception, and to any role where AI tools are part of
+              the daily workflow.
+            </p>
+          </div>
+
+          <div class="field-block" style="margin-bottom:0;">
+            <div class="field-label">References</div>
+            <p>
+              Session conducted in the AIML-500 Machine Learning Training
+              Methods Coach. Full transcript retained in the course platform.
+              No external sources cited.
             </p>
           </div>
 
