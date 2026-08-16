@@ -308,6 +308,7 @@
       <button class="tab-btn active" data-tab="artifact-01" onclick="showTab('artifact-01')">Artifact 01: AI Lab</button>
       <button class="tab-btn" data-tab="artifact-02" onclick="showTab('artifact-02')">Artifact 02: ML vs. DL</button>
       <button class="tab-btn" data-tab="artifact-03" onclick="showTab('artifact-03')">Artifact 03: Training Methods</button>
+      <button class="tab-btn" data-tab="artifact-04" onclick="showTab('artifact-04')">Artifact 04: Data Challenges</button>
     </div>
 
     <div class="tab-panel" id="artifact-01">
@@ -955,6 +956,288 @@
       </div>
     </div>
 
+    <div class="tab-panel" id="artifact-04" style="display:none;">
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div>
+            <div class="artifact-title">Working Through the Data Problems Behind the Model</div>
+            <div class="artifact-sub">Three production-minded scenarios on imbalance, drift, noisy labels, privacy, and responsible ML deployment</div>
+          </div>
+          <div class="artifact-tag">AI Dialogue</div>
+        </div>
+
+        <div class="artifact-body">
+          <div class="field-block">
+            <div class="field-label">Introduction</div>
+            <p>
+              This coaching session started where a lot of ML examples stop:
+              after the model choice, when the data is uneven, changing, messy,
+              or sensitive. I worked through three cases and had to defend a
+              plan that could survive outside a notebook, not just produce a
+              high score once.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Description</div>
+            <p>
+              The scenarios covered telecom churn with only 3% positive cases,
+              a live fraud system losing accuracy as behavior changed, and an
+              NLP hiring assistant trained on noisy historical decisions and
+              OCR-damaged resumes. The coach kept bringing the discussion back
+              to the same question: what would I trust, monitor, and explain to
+              the people affected by the prediction?
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Objective</div>
+            <p>
+              To practice cleaning and preparing difficult data, choosing
+              evaluation methods that match the real risk, and treating data
+              sharing, privacy, security, and human accountability as part of
+              the ML design instead of an afterthought.
+            </p>
+          </div>
+
+          <div class="field-block"><div class="field-label">Process</div></div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">01. Telecom Churn: 3% Positive Class</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>Plan I would use</h3>
+                <div class="ledger-item">
+                  <b>Fix the training data, not the test reality</b>
+                  <p>Start with stratified splits, class weights, and careful
+                  undersampling or SMOTE inside the training folds only. I
+                  would also inspect missing values, duplicates, leakage, and
+                  whether churn labels arrive late before resampling anything.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Use models that expose the trade-off</b>
+                  <p>Logistic regression gives a transparent baseline; a
+                  class-weighted tree ensemble can capture nonlinear behavior.
+                  I would tune the decision threshold around the cost of an
+                  unnecessary retention offer versus a customer we fail to
+                  reach.</p>
+                </div>
+              </div>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>What I would not trust</h3>
+                <div class="ledger-item">
+                  <b>Accuracy</b>
+                  <p>A model predicting “no churn” for everyone is 97% accurate
+                  and still useless. I would lead with precision, recall,
+                  F1, the precision-recall curve, PR-AUC, and a confusion
+                  matrix at the chosen operating threshold.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Synthetic customers everywhere</b>
+                  <p>Resampling the validation or test sets would create an
+                  easier world than production. Calibration and final metrics
+                  have to be checked against the untouched 3% base rate.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">02. Fraud Detection: Data Drift in Production</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>Detect and diagnose</h3>
+                <div class="ledger-item">
+                  <b>Watch inputs and outcomes separately</b>
+                  <p>Track feature distributions, missingness, category rates,
+                  score distributions, alert volume, latency, and delayed fraud
+                  labels. PSI, KS tests, and population comparisons can flag
+                  movement; precision and recall by time window show whether
+                  that movement is hurting decisions.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Trace the source before retraining</b>
+                  <p>Break drift down by merchant, geography, device, channel,
+                  and data-pipeline version. That separates a schema or sensor
+                  failure from new customer behavior or an adapting fraud
+                  pattern.</p>
+                </div>
+              </div>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>Mitigate and deploy</h3>
+                <div class="ledger-item">
+                  <b>Use a controlled response</b>
+                  <p>Adjust thresholds for an immediate, reversible response;
+                  retrain on a rolling window once labels are reliable; then
+                  shadow-test and canary the challenger against the current
+                  model with rollback rules already defined.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Keep the serving path lean and explainable</b>
+                  <p>Under real-time constraints I would favor a compact
+                  gradient-boosted model or interpretable scorecard with a
+                  bounded feature pipeline. Reason codes or precomputed SHAP
+                  explanations can support investigators without putting a
+                  heavy explanation job in every transaction path.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Monitoring is part of the model</b>
+                  <p>Dashboards need alert thresholds, owners, escalation
+                  steps, model and feature versions, and audit logs. A drift
+                  chart nobody is responsible for is not a control.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">03. Hiring NLP: Noisy Labels, OCR, and Bias</div>
+            <div class="ledger">
+              <div class="ledger-col strengths">
+                <h3><span class="dot gold"></span>Clean and reduce</h3>
+                <div class="ledger-item">
+                  <b>Make the documents usable first</b>
+                  <p>Measure OCR confidence, remove headers and duplicate text,
+                  normalize encoding and spacing, and route low-confidence
+                  documents for review. I would redact direct identifiers and
+                  strip obvious protected-attribute proxies before feature
+                  generation.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Control thousands of text features</b>
+                  <p>A TF-IDF baseline with minimum document frequency,
+                  regularization, and chi-square or mutual-information
+                  selection stays inspectable. Truncated SVD can reduce sparse
+                  dimensions, but I would compare it with the simpler baseline
+                  before accepting the loss of direct feature meaning.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Repair the target before optimizing it</b>
+                  <p>Historical hiring decisions are not objective ground
+                  truth. Sample labels for independent review, measure
+                  agreement, document ambiguous cases, and build a clearer
+                  rubric around job-relevant evidence rather than asking the
+                  model to reproduce past decisions.</p>
+                </div>
+              </div>
+              <div class="ledger-col growth">
+                <h3><span class="dot copper"></span>Fairness and safeguards</h3>
+                <div class="ledger-item">
+                  <b>Audit performance by group</b>
+                  <p>Use a time-based holdout and report selection rates, false
+                  negative and false positive rates, calibration, and error
+                  patterns across legally appropriate demographic groups.
+                  Intersectional checks matter because an overall average can
+                  hide the people carrying the errors.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Mitigate at more than one layer</b>
+                  <p>Remove or constrain proxy features, rebalance or reweight
+                  reviewed training examples, compare fairness-aware models,
+                  and set policy guardrails after prediction. Any accuracy and
+                  fairness trade-off should be documented, not buried in a
+                  single score.</p>
+                </div>
+                <div class="ledger-item">
+                  <b>Keep a person accountable</b>
+                  <p>The system should assist screening, not make the final
+                  hiring decision. Recruiters need reason codes, a way to
+                  override and record why, candidate appeal or correction
+                  paths, and regular audits of both model recommendations and
+                  human overrides.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-block">
+            <div class="assessment-name">04. Data Sharing, Privacy, and Security</div>
+            <div class="ledger-col strengths" style="max-width:100%;">
+              <h3><span class="dot gold"></span>Controls across all three cases</h3>
+              <div class="ledger-item">
+                <b>Collect and share less</b>
+                <p>Limit fields to the stated purpose, de-identify analysis
+                copies, separate identifiers from modeling data, and set
+                retention rules instead of keeping raw customer, transaction,
+                or applicant records indefinitely.</p>
+              </div>
+              <div class="ledger-item">
+                <b>Protect every handoff</b>
+                <p>Encrypt data in transit and at rest, use role-based access,
+                short-lived credentials, approved storage, data-use agreements,
+                and audit logs. Third-party sharing should be reviewed for
+                purpose, access, location, retention, and deletion.</p>
+              </div>
+              <div class="ledger-item">
+                <b>Do not leak people through the model</b>
+                <p>Restrict exports, test for memorization and inference risk,
+                version consent and provenance, and never expose raw resume or
+                transaction details through explanations or monitoring tools.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="artifact-note">
+            <b>Why this is here:</b> I came away seeing data cleaning as more
+            than fixing nulls. It includes challenging the label, preserving the
+            real base rate, catching change after deployment, and deciding who
+            should be allowed to see the data. Those choices set the ceiling for
+            both model quality and whether the system deserves to be used.
+          </div>
+
+          <div class="field-block" style="margin-top:30px;">
+            <div class="field-label">Tools and Technologies Used</div>
+            <div class="tools-list">
+              <span class="tool-chip">SchoolAI Data Challenge Scenarios Coach</span>
+              <span class="tool-chip">Imbalanced classification</span>
+              <span class="tool-chip">Drift monitoring</span>
+              <span class="tool-chip">NLP preprocessing</span>
+              <span class="tool-chip">Fairness auditing</span>
+              <span class="tool-chip">Privacy and security controls</span>
+            </div>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Value Proposition</div>
+            <p>
+              This artifact shows I can reason past model selection into the
+              operational work that decides whether an ML system succeeds:
+              trustworthy data, useful metrics, explainable decisions, drift
+              response, and clear ownership.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Unique Value</div>
+            <p>
+              My data engineering background shaped every answer. I kept
+              returning to lineage, delayed labels, pipeline versions,
+              monitoring ownership, and access controls because production
+              failures rarely stay inside the model boundary.
+            </p>
+          </div>
+
+          <div class="field-block">
+            <div class="field-label">Relevance</div>
+            <p>
+              Directly relevant to data and ML roles that handle rare events,
+              changing production data, sensitive records, or decisions that
+              materially affect customers and applicants.
+            </p>
+          </div>
+
+          <div class="field-block" style="margin-bottom:0;">
+            <div class="field-label">References</div>
+            <p>
+              Session conducted in the AIML-500 Data Challenge Scenarios Coach.
+              The three original completion screenshots and full dialogue are
+              retained with the course submission. No external sources cited.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -966,7 +1249,7 @@
         <a href="https://github.com/itsolutionsikg-ux" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
       </div>
-      <div class="footer-note">Updated July 2026</div>
+      <div class="footer-note">Updated August 2026</div>
     </div>
   </div>
 </footer>
