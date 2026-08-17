@@ -50,7 +50,7 @@
   a{ color: inherit; text-decoration: none; }
   a:focus-visible, button:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
 
-  .wrap{ max-width: 860px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
 
   nav{
     position: sticky; top: 0; z-index: 10;
@@ -226,6 +226,76 @@
   .footer-note{ font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
 
   ::selection{ background: var(--gold-dim); color: var(--bg); }
+
+  /* Portfolio overview */
+  .hero-grid{ display:grid; grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr); gap:56px; align-items:end; }
+  .hero-copy h1{ max-width:12ch; }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+  .btn-primary,.btn-secondary{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    min-height:44px; padding:0 18px; border-radius:9px; font-size:13.5px;
+    font-weight:600; transition:transform .15s ease, border-color .15s ease;
+  }
+  .btn-primary{ background:var(--gold); color:var(--bg); border:1px solid var(--gold); }
+  .btn-secondary{ background:rgba(20,23,27,.72); color:var(--text); border:1px solid var(--border); }
+  .btn-primary:hover,.btn-secondary:hover{ transform:translateY(-2px); }
+  .btn-secondary:hover{ border-color:var(--gold-dim); }
+  .hero-panel{
+    position:relative; overflow:hidden; padding:24px; border:1px solid var(--border);
+    border-radius:16px; background:linear-gradient(145deg,rgba(25,29,34,.96),rgba(15,17,20,.96));
+  }
+  .hero-panel::before{ content:''; position:absolute; width:150px; height:150px; border-radius:50%;
+    right:-65px; top:-75px; background:rgba(201,168,76,.12); filter:blur(4px); }
+  .availability{ display:flex; align-items:center; gap:9px; color:var(--text-mid); font-size:12.5px; }
+  .pulse{ width:8px; height:8px; border-radius:50%; background:#66c98b; box-shadow:0 0 0 5px rgba(102,201,139,.1); }
+  .quick-stats{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:28px; }
+  .quick-stat b{ display:block; color:var(--text); font:700 21px var(--serif-display); }
+  .quick-stat span{ color:var(--text-dim); font:11px var(--mono); text-transform:uppercase; letter-spacing:.05em; }
+
+  .overview-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:18px; }
+  .overview-card{ padding:28px; border:1px solid var(--border); border-radius:14px; background:var(--surface); }
+  .overview-card.featured{ background:linear-gradient(135deg,rgba(201,168,76,.09),rgba(20,23,27,.96) 54%); }
+  .overview-card h3{ font:700 18px var(--serif-display); color:var(--text); margin-bottom:12px; }
+  .overview-card p{ color:var(--text-mid); font-size:14.5px; max-width:62ch; }
+  .overview-card p + p{ margin-top:12px; }
+  .audience-list{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .audience-list span{ padding:7px 10px; border-radius:7px; background:var(--surface-2); border:1px solid var(--border-soft);
+    color:var(--text-mid); font:11.5px var(--mono); }
+
+  .expertise-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; }
+  .expertise-card{ padding:20px; border:1px solid var(--border); border-radius:12px; background:var(--surface); }
+  .expertise-index{ color:var(--gold-dim); font:11px var(--mono); letter-spacing:.08em; }
+  .expertise-card h3{ font:600 15px var(--serif-display); margin:12px 0 7px; }
+  .expertise-card p{ color:var(--text-dim); font-size:13px; line-height:1.55; }
+
+  .project-card{ position:relative; overflow:hidden; display:grid; grid-template-columns:1.12fr .88fr; border:1px solid var(--border);
+    border-radius:16px; background:var(--surface); }
+  .project-main{ padding:34px; }
+  .project-kicker{ color:var(--gold); font:11px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+  .project-card h3{ font:700 25px var(--serif-display); margin:10px 0 12px; }
+  .project-card p{ color:var(--text-mid); font-size:14.5px; max-width:58ch; }
+  .project-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+  .project-tags span{ font:11.5px var(--mono); color:var(--text); padding:7px 10px; border:1px solid var(--border); border-radius:100px; background:var(--surface-2); }
+  .project-side{ display:flex; flex-direction:column; justify-content:center; gap:1px; padding:22px; background:var(--surface-2); }
+  .project-feature{ padding:18px; border-bottom:1px solid var(--border); }
+  .project-feature:last-child{ border-bottom:0; }
+  .project-feature b{ display:block; color:var(--text); font-size:13.5px; margin-bottom:4px; }
+  .project-feature span{ color:var(--text-dim); font-size:12.5px; }
+
+  @media (max-width:780px){
+    .hero-grid,.overview-grid,.project-card{ grid-template-columns:1fr; }
+    .hero{ padding-top:70px; }
+    .hero-grid{ gap:30px; }
+    .expertise-row{ grid-template-columns:1fr; }
+    .project-side{ border-top:1px solid var(--border); }
+  }
+  @media (max-width:520px){
+    .wrap{ padding-left:20px; padding-right:20px; }
+    nav .wrap{ align-items:flex-start; }
+    .navlinks{ gap:14px; flex-wrap:wrap; justify-content:flex-end; font-size:12px; }
+    .hero-actions a{ width:100%; }
+    .overview-card,.project-main{ padding:22px; }
+  }
 </style>
 </head>
 <body>
@@ -235,24 +305,42 @@
     <div class="brand">Khalil <span>/</span> Portfolio</div>
     <div class="navlinks">
       <a href="#about">About</a>
+      <a href="#projects">Projects</a>
       <a href="#artifacts" onclick="showTab('artifact-01')">Artifacts</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
-<header class="hero wrap">
-  <div class="eyebrow">Data Engineering to AI / ML</div>
-  <h1>Building systems, then <em>leading</em> the people around them.</h1>
-  <p class="role-line">
-    <b>Senior Data Engineer</b> at an oil and gas company, now building a
-    real estate SaaS company on the side while finishing an MS in AI.
-  </p>
-  <div class="hero-meta">
-    <span class="chip">Data Engineering</span>
-    <span class="chip">Applied AI / ML</span>
-    <span class="chip">Real Estate SaaS Founder</span>
-    <span class="chip">Texas, US</span>
+<header class="hero wrap" id="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Data Engineering to AI / ML</div>
+      <h1>Building reliable data systems—and the products they make possible.</h1>
+      <p class="role-line">
+        <b>Senior Data Engineer</b>, M.S. Artificial Intelligence candidate,
+        and founder building Kerbi, a real estate operations platform.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
+        <a class="btn-secondary" href="#artifacts" onclick="showTab('artifact-01')">View AI/ML artifacts</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">Data Engineering</span>
+        <span class="chip">Applied AI / ML</span>
+        <span class="chip">Product Building</span>
+        <span class="chip">Texas, US</span>
+      </div>
+    </div>
+    <aside class="hero-panel" aria-label="Professional snapshot">
+      <div class="availability"><span class="pulse"></span>Building at the intersection of data, AI, and operations</div>
+      <div class="quick-stats">
+        <div class="quick-stat"><b>Senior</b><span>Data engineering</span></div>
+        <div class="quick-stat"><b>M.S.</b><span>AI in progress</span></div>
+        <div class="quick-stat"><b>Kerbi</b><span>Founder project</span></div>
+        <div class="quick-stat"><b>4</b><span>AI/ML artifacts</span></div>
+      </div>
+    </aside>
   </div>
 </header>
 
@@ -264,13 +352,74 @@
         <h2>About</h2>
       </div>
     </div>
-    <div class="about-text">
-      <p>
-        I'm currently a Senior Data Engineer at an oil and gas company,
-        working with pipelines, well sensor data, and compliance reporting.
-        On the side, I'm building a SaaS company focused on real estate
-        products, including resident portals and CRM tools.
-      </p>
+    <div class="overview-grid">
+      <article class="overview-card featured">
+        <div class="section-label">Professional Bio</div>
+        <h3>Engineering judgment shaped by production data</h3>
+        <p>
+          I'm a Senior Data Engineer in the oil and gas industry, where I work
+          with pipelines, well sensor data, operational reporting, and the
+          unglamorous data-quality problems that determine whether a system can
+          actually be trusted. That experience taught me to think beyond the
+          model and pay attention to lineage, failure modes, monitoring, and the
+          people who depend on the output.
+        </p>
+        <p>
+          I'm now completing an M.S. in Artificial Intelligence and applying
+          that production mindset to machine learning. In parallel, I'm
+          building Kerbi, a real estate operations platform focused on making
+          resident, payment, and agency workflows clearer and easier to manage.
+        </p>
+      </article>
+
+      <article class="overview-card">
+        <div class="section-label">Personal Value Proposition</div>
+        <h3>I connect the data layer to the decision.</h3>
+        <p>
+          I bring data engineering discipline, applied AI reasoning, and a
+          founder's product perspective to the same table. I can trace a weak
+          result back through the pipeline, explain the trade-off without
+          hiding behind jargon, and keep the solution tied to the real user and
+          business constraint.
+        </p>
+      </article>
+
+      <article class="overview-card" style="grid-column:1 / -1;">
+        <div class="section-label">Target Audience</div>
+        <h3>Who this portfolio is built for</h3>
+        <p>
+          This portfolio is for hiring managers, technical leaders, data and ML
+          teams, and potential product collaborators looking for someone who
+          can move between reliable data foundations and practical AI systems.
+          The artifacts show how I reason; Kerbi shows how I turn that reasoning
+          into a product with real operational constraints.
+        </p>
+        <div class="audience-list" aria-label="Portfolio audiences">
+          <span>Data Engineering Leaders</span>
+          <span>AI / ML Hiring Managers</span>
+          <span>Technical Product Teams</span>
+          <span>Real Estate Operators</span>
+          <span>Startup Collaborators</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="expertise-row" aria-label="Core expertise">
+      <article class="expertise-card">
+        <div class="expertise-index">01 / FOUNDATION</div>
+        <h3>Data Engineering</h3>
+        <p>Pipelines, sensor data, quality controls, lineage, operational reporting, and production reliability.</p>
+      </article>
+      <article class="expertise-card">
+        <div class="expertise-index">02 / INTELLIGENCE</div>
+        <h3>Applied AI / ML</h3>
+        <p>Model evaluation, imbalanced data, drift, explainability, responsible deployment, and AI tool testing.</p>
+      </article>
+      <article class="expertise-card">
+        <div class="expertise-index">03 / OUTCOME</div>
+        <h3>Product & Leadership</h3>
+        <p>Turning technical decisions into clear workflows, scoped products, stakeholder alignment, and measurable value.</p>
+      </article>
     </div>
 
     <div class="vp-block" style="margin-top:18px;">
@@ -292,6 +441,63 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-label">Featured Project</div>
+        <h2>Building beyond the assignment</h2>
+      </div>
+    </div>
+
+    <article class="project-card">
+      <div class="project-main">
+        <div class="project-kicker">Founder Project · Real Estate SaaS</div>
+        <h3>Kerbi</h3>
+        <p>
+          Kerbi is a real estate operations platform I am building to simplify
+          the day-to-day connection between residents and property agencies.
+          The product direction includes resident portals, payment guidance,
+          agency workflows, and CRM capabilities—areas where clarity,
+          reliability, and trust matter more than adding technology for its own
+          sake.
+        </p>
+        <p style="margin-top:12px;">
+          It is also the environment where I test AI ideas against real product
+          boundaries. The support chatbot documented in Artifact 1 was grounded
+          in Kerbi's own content and tested to answer usage questions while
+          refusing billing and lease actions it should not perform.
+        </p>
+        <div class="project-tags">
+          <span>Resident Experience</span>
+          <span>Agency CRM</span>
+          <span>Payment Workflows</span>
+          <span>Scoped AI Support</span>
+          <span>Product Strategy</span>
+        </div>
+      </div>
+      <div class="project-side">
+        <div class="project-feature">
+          <b>The problem</b>
+          <span>Property communication and routine service workflows are often fragmented.</span>
+        </div>
+        <div class="project-feature">
+          <b>My role</b>
+          <span>Founder, product strategist, systems thinker, and builder.</span>
+        </div>
+        <div class="project-feature">
+          <b>The design principle</b>
+          <span>Automate the guidance; keep sensitive actions and accountability with people.</span>
+        </div>
+        <div class="project-feature">
+          <b>Portfolio connection</b>
+          <span>Artifact 1 documents the first AI support boundary tests.</span>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
